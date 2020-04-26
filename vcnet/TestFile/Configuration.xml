@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Configuration>
+    <Site category="SITE_PLAT" regId="13" siteId="7"
+          systemUserTag="Airborne"
+          userTag="PHM Host Service Launcher" />
+    
+    <Modules>
+        <module id="1001" name="IM_00" file="IM_Default.dll" type="IM" ext_config="IM_Default.xml">
+			<CommPorts>
+				<CommPort id="101" identifier="IM_00_Service_Consumer_DataEvent" 
+                          type="Service" role="Consumer" exchfmt="DataEvent" 
+                          method="DataEvent" fn="serviceNotifyDataEvent" />
+			</CommPorts>
+		</module>
+        <module id="1002" name="IF_UDP_VIB" file="InterfaceUDP_VIB.dll" type="IF | DA">
+            <CommPorts>
+                <CommPort id="201" identifier="DA_00_Service_Provider_DataEvent_VIB" 
+                          type="Service" role="Provider" exchfmt="DataEvent">
+                    <Function method="Connect" exchfmt="RecverInfo" fn="RegisterClient_serviceDataEvent" />
+                    <Function method="Disconnect" exchfmt="RecverInfo" fn="UnregisterClient_serviceDataEvent" />
+                </CommPort>
+            </CommPorts>
+            <AccessPoints>
+                <AccessPoint id="0x01" identifier="AP_VIB_CH0" type="UDP_Monitor_IPv4" ipv4_address="0.0.0.0" port="4001" MonitorId="0x0201" />
+                <AccessPoint id="0x02" identifier="AP_VIB_CH1" type="UDP_Monitor_IPv4" ipv4_address="0.0.0.0" port="4002" MonitorId="0x0201" />
+				<AccessPoint id="0x03" identifier="AP_VNG_UDP" type="UDP_Monitor_IPv4" ipv4_address="0.0.0.0" port="4003" MonitorId="0x0202" />
+            </AccessPoints>
+        </module>
+        <module id="1005" name="DM_S01" file="DM_Stage_01.dll" type="DM">
+            <CommPorts>
+                <CommPort id="501" identifier="DM_S01_Service_Consumer_DataEvent" 
+                          type="Service" role="Consumer" exchfmt="DataEvent" 
+                          method="DataEvent" fn="serviceNotifyDataEvent" />
+				<CommPort id="502" identifier="DM_S01_Service_Provider_DataEvent" 
+                          type="Service" role="Provider" exchfmt="DataEvent">
+                    <Function method="Connect" exchfmt="RecverInfo" fn="RegisterClient_serviceDataEvent" />
+                    <Function method="Disconnect" exchfmt="RecverInfo" fn="UnregisterClient_serviceDataEvent" />
+                </CommPort>
+            </CommPorts>
+        </module>
+        <module id="1006" name="DM_S02" file="DM_Stage_02.dll" type="DM">
+            <CommPorts>
+                <CommPort id="601" identifier="DM_S02_Service_Consumer_DataEvent" 
+                          type="Service" role="Consumer" exchfmt="DataEvent" 
+                          method="DataEvent" fn="serviceNotifyDataEvent" />
+            </CommPorts>
+        </module>
+        <module id="1007" name="SD_00" file="SD_Default.dll" type="SD">
+            <CommPorts>
+                <CommPort id="701" identifier="SD_00_ServiceConsumer_DataEvent_VNG" 
+                          type="Service" role="Consumer" exchfmt="DataEvent" 
+                          method="DataEvent" fn="serviceNotifyDataEvent" />
+            </CommPorts>
+        </module>
+    </Modules>
+    
+    <CommPortLinks>
+        <Link id="2001" Provider="201" Consumer="101" Comments="IM_00  get VIB sensor data from IF_UDP_VIB through Service interface." />
+		<Link id="2002" Provider="201" Consumer="501" Comments="DM_S01 get VIB sensor data from IF_UDP_VIB through Service interface." />
+		<Link id="2003" Provider="201" Consumer="701" Comments="SD_00  get VNG sensor data from IF_UDP_VIB through Service interface." />
+		<Link id="2004" Provider="502" Consumer="601" Comments="DM_S02 get agent data from DM_S01 through Service interface." />
+    </CommPortLinks>
+    
+    <AppSettings identifier="PHM_Node_#1">
+        <TcpConsole port="5001" />
+    </AppSettings>
+</Configuration>
