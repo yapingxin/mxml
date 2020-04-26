@@ -24,3 +24,5 @@ vcnet/Release
 vcnet/packages
 xcode/mxml.xcodeproj/project.xcworkspace
 xcode/mxml.xcodeproj/xcuserdata
+/vcnet/mxml.VC.VC.opendb
+/vcnet/mxml.VC.db
