@@ -58,7 +58,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="mxml1.def">
+    <None Include="mxml.def">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

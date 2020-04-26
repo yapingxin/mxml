@@ -102,7 +102,7 @@
     <Link>
       <OutputFile>$(Configuration)\$(Platform)\$(ProductName)\mxml1.dll</OutputFile>
       <IgnoreSpecificDefaultLibraries>oldnames.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\mxml1.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\mxml.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)mxml1.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -124,7 +124,7 @@
     <Link>
       <OutputFile>$(Configuration)\$(Platform)\$(ProductName)\mxml1.dll</OutputFile>
       <IgnoreSpecificDefaultLibraries>oldnames.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\mxml1.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\mxml.def</ModuleDefinitionFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -153,7 +153,7 @@
     <Link>
       <OutputFile>$(Configuration)\$(Platform)\$(ProductName)\mxml1.dll</OutputFile>
       <IgnoreSpecificDefaultLibraries>oldnames.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\mxml1.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\mxml.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)mxml1.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -178,7 +178,7 @@
     <Link>
       <OutputFile>$(Configuration)\$(Platform)\$(ProductName)\mxml1.dll</OutputFile>
       <IgnoreSpecificDefaultLibraries>oldnames.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\mxml1.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\mxml.def</ModuleDefinitionFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -207,7 +207,7 @@
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="mxml1.def" />
+    <None Include="mxml.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
